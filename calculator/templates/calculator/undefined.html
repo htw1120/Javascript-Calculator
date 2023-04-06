@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" href="{% static 'calculator/style.css' %}">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Undefined Expressions</title>
+</head>
+<body>
+<div>
+	{% include "calculator/navigation.html" %}
+</div>
+    <div>
+        <h2>Undefined Expressions</h2>
+        {% for expression in recent_expressions %}
+                <form action="{% url 'calculator:index' %}" method="post">
+                {% csrf_token %}
+ <span class="expressions">Expression #{{ expression.id }}: &nbsp&nbsp<code>{{ expression.operand1 }} {{ expression.operator.symbol }} {{expression.operand2 }}</code> is undefined</span>
+                                <input type="submit" value="Delete">
+
+                    <input type="hidden" name="pk" value = "{{ expression.pk }}">
+                </form>
+        {% endfor %}
+    </div>
+</body>
+</html>
+</body>
+</html>

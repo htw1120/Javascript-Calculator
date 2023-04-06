@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" href="{% static 'calculator/style.css' %}">
+
+<html lang="en">
+<head>
+    <title>Expressions by Operation</title>
+        <meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div>
+	{% include "calculator/navigation.html" %}
+</div>
+<h2>Expressions by Operation</h2>
+
+
+        <div class="addition">
+            {% if addition.count != 0 %}
+        <h3>Addition</h3>
+        {% for expression in addition %}
+            {% if expression.defined == False %}
+                <form action="{% url 'calculator:index' %}" method="post">
+                {% csrf_token %}
+                <span class="expressions">Expression #{{ expression.id }}: &nbsp&nbsp<code>{{ expression.operand1 }} {{ expression.operator.symbol }} {{expression.operand2 }}</code> is undefined</span>
+                <input type="submit" value="Delete">
+                <input type="hidden" name="pk" value = "{{ expression.pk }}">
+                </form>
+            {% else %}
+                <form action="{% url 'calculator:index' %}" method="post">
+                {% csrf_token %}
+                <span class="expressions">Expression #{{ expression.id }}: &nbsp&nbsp<code>{{ expression.operand1 }} {{ expression.operator.symbol }} {{expression.operand2 }} = {{expression.pyresult }}</code></span>
+                <input type="submit" value="Delete">
+                <input type="hidden" name="pk" value = "{{ expression.pk }}">
+               </form>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="subtraction">
+            {% if subtraction.count != 0 %}
+        <h3>Subtraction</h3>
+
+        {% for expression in subtraction %}
+            {% if expression.defined == False %}
+                <form action="{% url 'calculator:index' %}" method="post">
+                {% csrf_token %}
+                <span class="expressions">Expression #{{ expression.id }}: &nbsp&nbsp<code>{{ expression.operand1 }} {{ expression.operator.symbol }} {{expression.operand2 }}</code> is undefined</span>
+                <input type="submit" value="Delete">
+                <input type="hidden" name="pk" value = "{{ expression.pk }}">
+                </form>
+            {% else %}
+                <form action="{% url 'calculator:index' %}" method="post">
+                {% csrf_token %}
+                <span class="expressions">Expression #{{ expression.id }}: &nbsp&nbsp<code>{{ expression.operand1 }} {{ expression.operator.symbol }} {{expression.operand2 }} = {{expression.pyresult }}</code></span>
+                <input type="submit" value="Delete">
+                <input type="hidden" name="pk" value = "{{ expression.pk }}">
+               </form>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="multiplication">
+            {% if multiplication.count != 0 %}
+        <h3>Multiplication</h3>
+
+        {% for expression in multiplication %}
+            {% if expression.defined == False %}
+                <form action="{% url 'calculator:index' %}" method="post">
+                {% csrf_token %}
+                <span class="expressions">Expression #{{ expression.id }}: &nbsp&nbsp<code>{{ expression.operand1 }} {{ expression.operator.symbol }} {{expression.operand2 }} is undefined</code></span>
+                <input type="submit" value="Delete">
+                <input type="hidden" name="pk" value = "{{ expression.pk }}">
+                </form>
+            {% else %}
+                <form action="{% url 'calculator:index' %}" method="post">
+                {% csrf_token %}
+                <span class="expressions">Expression #{{ expression.id }}: &nbsp&nbsp<code>{{ expression.operand1 }} {{ expression.operator.symbol }} {{expression.operand2 }} = {{expression.pyresult }}</code></span>
+                <input type="submit" value="Delete">
+                <input type="hidden" name="pk" value = "{{ expression.pk }}">
+               </form>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="division">
+            {% if division.count != 0 %}
+        <h3>Division</h3>
+
+        {% for expression in division %}
+            {% if expression.defined == False %}
+                <form action="{% url 'calculator:index' %}" method="post">
+                {% csrf_token %}
+                <span class="expressions">Expression #{{ expression.id }}: &nbsp&nbsp<code>{{ expression.operand1 }} {{ expression.operator.symbol }} {{expression.operand2 }}</code> is undefined</span>
+                <input type="submit" value="Delete">
+                <input type="hidden" name="pk" value = "{{ expression.pk }}">
+                </form>
+            {% else %}
+                <form action="{% url 'calculator:index' %}" method="post">
+                {% csrf_token %}
+                <span class="expressions">Expression #{{ expression.id }}: &nbsp&nbsp<code>{{ expression.operand1 }} {{ expression.operator.symbol }} {{expression.operand2 }} = {{expression.pyresult }}</code></span>
+                <input type="submit" value="Delete">
+                <input type="hidden" name="pk" value = "{{ expression.pk }}">
+               </form>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="remainder">
+            {% if remainder.count != 0 %}
+        <h3>Remainder</h3>
+
+        {% for expression in remainder %}
+            {% if expression.defined == False %}
+                <form action="{% url 'calculator:index' %}" method="post">
+                {% csrf_token %}
+                <span class="expressions">Expression #{{ expression.id }}: &nbsp&nbsp<code>{{ expression.operand1 }} {{ expression.operator.symbol }} {{expression.operand2 }}</code> is undefined</span>
+                <input type="submit" value="Delete">
+                <input type="hidden" name="pk" value = "{{ expression.pk }}">
+                </form>
+            {% else %}
+                <form action="{% url 'calculator:index' %}" method="post">
+                {% csrf_token %}
+                <span class="expressions">Expression #{{ expression.id }}: &nbsp&nbsp<code>{{ expression.operand1 }} {{ expression.operator.symbol }} {{expression.operand2 }} = {{expression.pyresult }}</code></span>
+                <input type="submit" value="Delete">
+                <input type="hidden" name="pk" value = "{{ expression.pk }}">
+               </form>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="exponentiation">
+            {% if exponentiation.count != 0 %}
+        <h3>Exponentiation</h3>
+
+        {% for expression in exponentiation %}
+            {% if expression.defined == False %}
+                <form action="{% url 'calculator:index' %}" method="post">
+                {% csrf_token %}
+                <span class="expressions">Expression #{{ expression.id }}: &nbsp&nbsp<code>{{ expression.operand1 }} {{ expression.operator.symbol }} {{expression.operand2 }}</code> is undefined</span>
+                <input type="submit" value="Delete">
+                <input type="hidden" name="pk" value = "{{ expression.pk }}">
+                </form>
+            {% else %}
+                <form action="{% url 'calculator:index' %}" method="post">
+                {% csrf_token %}
+                <span class="expressions">Expression #{{ expression.id }}: &nbsp&nbsp<code>{{ expression.operand1 }} {{ expression.operator.symbol }} {{expression.operand2 }} = {{expression.pyresult }}</code> </span>
+                <input type="submit" value="Delete">
+                <input type="hidden" name="pk" value = "{{ expression.pk }}">
+               </form>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        </div>
+
+    </body>
+
+</html>

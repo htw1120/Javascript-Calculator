@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" href="{% static 'calculator/style.css' %}">
+<html lang="en">
+    <head>
+        <title>plan.html</title>
+        <meta charset="utf-8">
+        </head>
+    <body>
+        <div>
+	{% include "calculator/navigation.html" %}
+</div>
+        <div></div>
+<div>
+    <h1 id="sdp">Software Development Plan</h1>
+</div>
+<div id="rs">
+    <h2>Requirements Specification</h2>
+<ol>
+    <li>This assignment makes a dynamic calculator using python, HTML, CSS, Django, and Javascript</li>
+    <li>There will be several HTML pages that will show various calculations.</li>
+    <li>Only one page will give the option to do the calculations.</li>
+    <li>There is a lot of data that comes from a lot of sources. All of the data will be housed in my assignment for the most part.</li>
+    <li>The output will be a clean calculator complete with links to other pages </li>
+    <li>I can't think of specific algorithms that I use. I don't think it will be too complicated.</li>
+</ol>
+</div>
+        <div id="design">
+    <h2>Design</h2>
+            <code>
+<br/>Model
+            <br/>&nbsp&nbspdef Operator()
+            <br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSet Operator characteristics equal to their needed attributes.
+                        <br/>&nbsp&nbspdef expression()
+            <br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSet Expression characteristics equal to their needed attributes.
+<br/>urls
+            <br/>&nbsp&nbspSet a path for each needed url path.
+
+<br/>views
+            <br/>&nbsp&nbspdef index()
+            <br/>&nbsp&nbsp&nbsp&nbspTake a POST request, do some math, and send it right back to the HTML
+            <br/>&nbsp&nbsp&nbsp&nbspUse a try/except block to catch any errors. From there, return a render of index.HTML
+            <br/>&nbsp&nbspdef delete()
+            <br/>&nbsp&nbsp&nbsp&nbspTake a POST request with information and delete the object in the database.
+            <br/>&nbsp&nbspdef disagreeing()
+            <br/>&nbsp&nbsp&nbsp&nbspReturn a render object including a list of expressions filtered accordingly.
+            <br/>&nbsp&nbspdef operator()
+                        <br/>&nbsp&nbsp&nbsp&nbspReturn a render object including a list of expressions filtered accordingly.
+            <br/>&nbsp&nbsp&nbsp&nbspI will also include various lists of objects by operator to include in the render.
+            <br/>&nbsp&nbspdef plan()
+            <br/>&nbsp&nbsp&nbsp&nbspReturn a render object with all the needed info
+            <br/>&nbsp&nbspdef recent()
+                <br/>&nbsp&nbsp&nbsp&nbspReturn a render object including a list of all expressions.
+            <br/>&nbsp&nbspdef undefined()
+                <br/>&nbsp&nbsp&nbsp&nbspReturn a render object including a list of expressions filtered accordingly.
+                <br/>index.html
+                <br/>&nbsp&nbspDisplay a navigation bar, inputs to do the calculating, a unsaved expression section, and a most recent expressions section.
+                <br/>disagreeing.html
+                <br/>&nbsp&nbspDisplay a navigation bar and a list of expressions that disagree between python and javascript results
+                <br/>error.html
+                <br/>&nbsp&nbspDisplay a simple error message.
+                <br/>navigation.html
+                <br/>&nbsp&nbspCode a navigation bar which is used later.
+                <br/>operator.html
+                <br/>&nbsp&nbspDisplay a navigation bar, and a list of expressions grouped by the operator.
+                <br/>plan.html
+                <br/>&nbsp&nbspDisplay a navigation bar, and the SDP
+                <br/>recent.html
+                <br/>&nbsp&nbspDisplay a navigation bar, and all expressions
+                <br/>undefined.html
+                <br/>&nbsp&nbspDisplay a navigation bar and a list of expressions that are undefined.
+                <br/>scripts.css
+                <br/>&nbsp&nbspCreate a form with information that was given by the user, compute it, and send it to the necessary locations through POST.
+
+
+
+            </code>
+<div id = "implement">
+    <h2>Implementation</h2>
+    <p>This assignment was kind of frustrating when I was on the learning curve, but for the most part, I really
+        enjoyed it. I enjoyed seeing it work. It was a lot of complex code, but I enjoyed it a lot.</p>
+</div>
+
+<div id = "deploy">
+    <h2>Deployment</h2>
+    <p>I will run my code and ensure its committed to gitlab.</p>
+</div>
+    <div id = "debug">
+    <h2>Testing & Debugging</h2>
+        <p>There were a lot of debugging. The hard part was being able to figure out where the error is. In python, it
+            gives you the specific line, but in Django, it doesn't always do that. I had trouble with my Javascript, my
+            python sending, my python calculations. One of the hardest things is that my migrations and database would
+            get wonky so my code wouldn't run. I would think it was something and try to fix it, but then I realized it
+            wasn't even that. That was probably the most frustrating thing.</p>
+</div>
+        <div id = "maintenance">
+    <h2>Maintenance</h2>
+    <ol>
+        <li><emp>What parts of your program are sloppily written and hard to understand?</emp></li>
+        <p>Part of my view.py is pretty confusing. There is just a ton going on.</p>
+        <li><emp>Are there parts of your program which you aren't quite sure how/why they work?</emp></li>
+        <p>A lot of code I don't really understand. Specifically, the django migrations are confusing as well as a little bit of Javascript.</p>
+        <li><emp>If a bug is reported in a few months, how long would it take you to find the cause?</emp></li>
+        <p>Pretty long. Just because Django doesn't do a very good job of specifying what or where the bug is.</p>
+        <li><emp>Will your documentation make sense to anybody besides yourself?</emp></li>
+        <p>I think it would. It is pretty organized based on the model.</p>
+        <li><emp>Will your documentation make sense to yourself in six month's time?</emp></li>
+        <p>I honestly don't think it will. If I read it for a few minutes, I would get it, but its a little complicated.</p>
+        <li><emp>How easy will it be to add a new feature to this program in a year?</emp></li>
+        <p>I think it would be kind of hard. I feel like changing it a little bit would kill the whole program.</p>
+        <li><emp>Will your program continue to work after upgrading your computer's hardware?</emp></li>
+        <p>Yes it should.</p>
+        <li><emp>Will your program continue to work after upgrading the operating system?</emp></li>
+        <p>Yes it should.</p>
+        <li><emp>Will your program continue to work after upgrading to the next version of Python?</emp></li>
+        <p>Yes it should</p>
+    </ol>
+        </div>
+    </body>
+</html>

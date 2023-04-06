@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" href="{% static 'calculator/style.css' %}">
+<html lang="en">
+    <head>
+        <title>All Expressions</title>
+        <meta charset="utf-8">
+            </head>
+    <body>
+    <div>
+	{% include "calculator/navigation.html" %}
+</div>
+    <div>
+        <h2>Recent Saved Expressions</h2>
+        {% for expression in recent_expressions %}
+
+                    {% if expression.defined == False %}
+                <form action="{% url 'calculator:index' %}" method="post">
+                {% csrf_token %}
+ <span class="expressions">Expression #{{ expression.id }}: &nbsp&nbsp<code>{{ expression.operand1 }} {{ expression.operator.symbol }} {{expression.operand2 }}</code> is undefined</span>
+                                <input type="submit" value="Delete">
+
+                    <input type="hidden" name="pk" value = "{{ expression.pk }}">
+                </form>
+            {% else %}
+                <form action="{% url 'calculator:index' %}" method="post">
+                {% csrf_token %}
+
+                    <span class="expressions">Expression #{{ expression.id }}: &nbsp&nbsp<code>{{ expression.operand1 }} {{ expression.operator.symbol }} {{expression.operand2 }} = {{expression.pyresult }}</code></span>
+               <input type="submit" value="Delete">
+                <input type="hidden" name="pk" value = "{{ expression.pk }}">
+
+               </form>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+        </body>
+</html>
